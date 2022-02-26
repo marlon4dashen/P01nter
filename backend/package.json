@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "server": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manyicheng/Handbook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manyicheng/Handbook/issues"
+  },
+  "homepage": "https://github.com/manyicheng/Handbook#readme",
+  "dependencies": {
+    "@google-cloud/vision": "^2.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15"
+  }
+}
