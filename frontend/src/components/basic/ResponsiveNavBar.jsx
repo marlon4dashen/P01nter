@@ -12,13 +12,13 @@ import Face from '@mui/icons-material/Face';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { auth, db, logout } from "../../../helpers/AuthManager";
+import { auth, db, logout } from "../../helpers/Firebase";
 import { grey } from '@mui/material/colors';
 
-const pages = ['About', 'Journal', 'Assessment', 'Feedback'];
-const settings = ['Profile', 'Account', 'Dashboard'];
+const pages = ['Home', 'About', 'Dashboard', 'Feedback'];
+const settings = ['Profile', 'Account'];
 const defaultColor = grey[800]
-const ResponsiveAppBar = () => {
+const ResponsiveNavBar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -50,7 +50,7 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h4" noWrap component="div" sx={{ mr: 2, fontWeight: 'bold', display: { xs: 'none', md: 'flex' } }}>
-            FRIDAY
+            HANDBOOK
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -72,7 +72,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 'bold', display: { xs: 'flex', md: 'none' } }}>
-            FRIDAY
+            HANDBOOK
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (<Button key={page} onClick={() => pagesOnClick(page)} sx={{ my: 2, display: 'block', color: defaultColor}}>
@@ -108,5 +108,5 @@ const ResponsiveAppBar = () => {
       </Container>
     </AppBar>);
 };
-export default ResponsiveAppBar;
+export default ResponsiveNavBar;
 

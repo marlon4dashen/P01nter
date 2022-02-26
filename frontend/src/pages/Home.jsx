@@ -1,7 +1,14 @@
 import React from 'react';
+import Footer from '../components/basic/Footer';
+import ResponsiveNavBar from '../components/basic/ResponsiveNavBar';
 
 const Home = () => {
-    return <div>This is my home page</div>;
+    return(
+        <>
+            <ResponsiveNavBar/>
+            <Footer/>
+        </>
+    );
 };
 
 export default Home;
