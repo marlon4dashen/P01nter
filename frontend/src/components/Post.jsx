@@ -36,7 +36,7 @@ class Post extends Component {
                 this.setState({
                     username: resData.username,
                     description: resData.description,
-                    image: 'http://localhost:5000' + resData.imagePath,
+                    image: 'http://localhost:5000/' + resData.imagePath,
                     type: resData.type,
                     label: resData.label,
                     likes: resData.likes
