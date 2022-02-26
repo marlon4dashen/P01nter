@@ -1,12 +1,11 @@
 import React from 'react';
-import Footer from '../components/basic/Footer';
 import ResponsiveNavBar from '../components/basic/ResponsiveNavBar';
-const About = () => {
+
+const Login = () => {
     return <>
         <ResponsiveNavBar/>
-        This is my about page
-        <Footer/>
+        This is my login page
     </>;
 };
 
-export default About;
+export default Login;
