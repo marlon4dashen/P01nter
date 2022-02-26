@@ -38,8 +38,6 @@ provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
 const auth = getAuth(app);
 const db = getFirestore(app);
-// const db = getFirestore(app);
-// firebase.auth().useDeviceLanguage();
 // To apply the default browser preference instead of explicitly setting it.
 // firebase.auth().useDeviceLanguage();
 
