@@ -46,14 +46,5 @@
         "label":["river","cliff"],
         "type":"Landscape",
         "likes":5
-    },
-    {
-        "image-url":"https://www.undercanvas.com/wp-content/uploads/2021/07/Grand-Canyon-scaled.jpg",
-        "userName":"Andrew",
-        "description":"Good place!",
-        "label":["river","cliff"],
-        "type":"Landscape",
-        "likes":5
     }
-
 ]
