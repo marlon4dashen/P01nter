@@ -6,7 +6,6 @@ const About = () => {
     return <>
         <ResponsiveNavBar/>
         <AboutSection/>
-        <Footer/>
     </>;
 };
 
