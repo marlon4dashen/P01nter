@@ -70,6 +70,10 @@ const CreatePost = () => {
             if (resp.status === 200 ) {
                 console.log("Success")
 
+                setFiles([])
+                setText('')
+                setType('')
+
             }else{
                 throw new Error("Failed to upload")
             }
