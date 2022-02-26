@@ -144,7 +144,7 @@ const ResponsiveNavBar = ({setTheme}) => {
                 </MenuItem>))}
             </Menu>
           </Box>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 'bold', display: { xs: 'flex', md: 'none' } }}>
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: "4rem", display: { xs: 'flex', md: 'none' } }}>
             P01nter
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
