@@ -21,7 +21,7 @@ function AboutSection() {
       image="pointer.jpg"
       alt="pointer cover"
       />
-        <CardContent sx={{ ml:15,mr:15 }}>
+        <CardContent sx={{ mt:5,ml:15,mr:15 }}>
         <Divider light />
           <Typography component="div" variant="h3">
           Inspiration
@@ -31,10 +31,11 @@ function AboutSection() {
           </Typography>
           <Typography
             gutterBottom
-            variant={"h8"}>
+            variant={"h6"}>
                     {inspiration}
             </Typography>
-
+            </CardContent>
+            <CardContent sx={{ ml:15,mr:15 }}>
             <Typography component="div" variant="h3">
             About Us
           </Typography>
@@ -42,7 +43,7 @@ function AboutSection() {
             Team EmotionDamage
           </Typography>
           <Typography
-            variant={"h8"}>
+            variant={"h6"}>
                     {introduction}
             </Typography>
         </CardContent>
