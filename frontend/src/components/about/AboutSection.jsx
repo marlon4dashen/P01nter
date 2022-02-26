@@ -17,13 +17,14 @@ function AboutSection() {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <CardMedia
       component="img"
-      image="handbook.png"
-      alt="handbook cover"
+      sx={{display:'flex',justifyContent:'center'}}
+      image="pointer.png"
+      alt="pointer cover"
       />
-        <CardContent sx={{ ml:15,flex: '1 0 auto' }}>
+        <CardContent sx={{ ml:15,mr:15 }}>
         <Divider light />
           <Typography component="div" variant="h3">
-            Inspiration
+          Inspiration
           </Typography>
           <Typography variant="subtitle1" gutterBottom='true' component="div">
           VTHACKS IX 2022 Project
@@ -48,20 +49,20 @@ function AboutSection() {
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
         <CardMedia
         component='video'
-        sx={{ml:15, height:250, width: 300 }}
+        sx={{ml:15, height:250, width: 320 }}
         alt="Video"
         image={"about.mp4"}
         autoPlay
       />
       <CardMedia
       component="img"
-      sx={{ml:5, height:200,width: 300 }}
+      sx={{ml:5, height:200,width: 320 }}
       image="travel.jpg"
       alt="Image"
       />
       <CardMedia
       component="img"
-      sx={{ml:5, width: 300 }}
+      sx={{ml:5,height:200, width: 320 }}
       image="travel2.jpg"
       alt="Image"
       />

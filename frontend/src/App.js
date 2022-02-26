@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
-import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import './App.css';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
@@ -9,7 +9,8 @@ import Error from './pages/Error';
 import Dashboard from './pages/Dashboard';
 import Post from './components/Post';
 import PostList from './components/PostList';
-import './App.css';
+import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const App = () => {
   let themeDark = createTheme()
