@@ -10,14 +10,25 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json())
 
+// const fileStorage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null,  path.join(rootDir, 'data', 'images'))
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, file.originalname)
+//     }
+// })
+
+const { v4: uuidv4 } = require('uuid');
+ 
 const fileStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null,  path.join(rootDir, 'data', 'images'))
+    destination: function(req, file, cb) {
+        cb(null, path.join(rootDir, 'data', 'images'));
     },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname)
+    filename: function(req, file, cb) {
+        cb(null, uuidv4())
     }
-})
+});
 
 app.use(multer({ storage : fileStorage }).single('image'))
 app.use(cors());

@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Face from '@mui/icons-material/Face';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -97,7 +97,7 @@ const ResponsiveNavBar = ({setTheme}) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h4" noWrap component="div" sx={{ mr: 2, fontWeight: 'bold', display: { xs: 'none', md: 'flex' } }}>
-            HANDBOOK
+            P01nter
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -119,7 +119,7 @@ const ResponsiveNavBar = ({setTheme}) => {
             </Menu>
           </Box>
           <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 'bold', display: { xs: 'flex', md: 'none' } }}>
-            HANDBOOK
+            P01nter
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (<Button key={page} onClick={() => pagesOnClick(page)} sx={{ my: 2, display: 'block', color: 'white' }}>
@@ -151,7 +151,7 @@ const ResponsiveNavBar = ({setTheme}) => {
 
             <Tooltip title="Open settings">
               <IconButton aria-label="Avatar" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Face sx={{ fontSize: 35,color: 'white' }}/>
+                <AccountCircleIcon  sx={{ fontSize: 35,color: "white" }}/>
               </IconButton>
             </Tooltip>
             <Menu sx={{ mt: '45px' }} id="menu-appbar" anchorEl={anchorElUser} anchorOrigin={{

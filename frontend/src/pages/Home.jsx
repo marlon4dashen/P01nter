@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { Typography, Fab } from '@mui/material';
@@ -12,85 +13,33 @@ import { IntroContainer, CanvasContainer } from '../components/home/StyledContai
 
 
 const Home = () => {
-    let themeDark = createTheme()
-    let themeLight = createTheme()
-    themeLight = createTheme({
-        palette: {
-          background: {
-            default: "#ffffff"
-          }
-        },
-        typography: {
-          h1: {
-            fontWeight: 'bold',
-            fontSize: '6.6rem',
-          },
-          h2: {
-            fontWeight: 'bold',
-            fontSize: '3.3rem',
-          },
-          h3: {
-            fontWeight: 'bold',
-            fontSize: '2.5rem',
-          },
-        },
-      });
+    const navigate = useNavigate();
 
-    themeDark = createTheme({
-        palette: {
-          background: {
-            default: "#222222"
-          },
-          text: {
-            primary: "#ffffff"
-          },
-        },
-        typography: {
-            h1: {
-              fontWeight: 'bold',
-              fontSize: '6.6rem',
-            },
-            h2: {
-              fontWeight: 'bold',
-              fontSize: '3.3rem',
-            },
-            h3: {
-              fontWeight: 'bold',
-              fontSize: '2.5rem',
-            },
-        },
-        buttonIcon: {
-          color: "#ffffff",
-      },
-    });
-
-    themeDark = responsiveFontSizes(themeDark);
-    themeLight = responsiveFontSizes(themeLight);
-
-
-    const [light, setLight] = React.useState(false);
+    const getStarted = () => {
+      navigate('../login')
+    }
 
     return(
-        <ThemeProvider theme={light ? themeLight : themeDark}>
-        <CssBaseline />
-            <ResponsiveNavBar setTheme={() => setLight(!light)}/>
-            <IntroContainer>
-                <Typography variant="h1">Hello World 🌎</Typography>
-                <Typography variant="h3" gutterBottom>Share • Travel • Connect</Typography>
-                <Fab variant="extended" sx={{ m: 4 }} style={{ fontSize: '1vw' }}>
-                    Get Started!
-                </Fab>
+      <div className="home">
+        <ResponsiveNavBar/>
+          <IntroContainer>
+              <Typography variant="h1">Hello World 🌎</Typography>
+              <Typography variant="h3" gutterBottom>Share • Travel • Connect</Typography>
+              <Fab variant="extended"  onClick={getStarted} sx={{ m: 4 }} style={{ fontSize: '1vw' }}>
+                  Get Started!
+              </Fab>
 
-            </IntroContainer>
-            <CanvasContainer className="canvas">
+          </IntroContainer>
+          <CanvasContainer className="canvas">
                 <Canvas >
                     <Suspense fallback={null}>
                         <Earth3D/>
                     </Suspense>
                 </Canvas>
-            </CanvasContainer>
-            <Footer/>
-        </ThemeProvider>
+          </CanvasContainer>
+
+        <Footer/>
+      </div>
     );
 };
 
