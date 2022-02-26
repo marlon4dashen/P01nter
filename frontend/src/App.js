@@ -9,27 +9,88 @@ import Error from './pages/Error';
 import Dashboard from './pages/Dashboard';
 import Post from './components/Post';
 import PostList from './components/PostList';
-
+import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const App = () => {
-  return (
-    <Router>
-      <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+  let themeDark = createTheme()
+    let themeLight = createTheme()
+    themeLight = createTheme({
+        palette: {
+          background: {
+            default: "#ffffff"
+          }
+        },
+        typography: {
+          h1: {
+            fontWeight: 'bold',
+            fontSize: '6.6rem',
+          },
+          h2: {
+            fontWeight: 'bold',
+            fontSize: '3.3rem',
+          },
+          h3: {
+            fontWeight: 'bold',
+            fontSize: '2.5rem',
+          },
+        },
+      });
 
-          <Route path="/post" element={<Post />} />
-          <Route path="/postlist" element={<PostList />} />
+    themeDark = createTheme({
+        palette: {
+          background: {
+            default: "#222222"
+          },
+          text: {
+            primary: "#ffffff"
+          },
+        },
+        typography: {
+            h1: {
+              fontWeight: 'bold',
+              fontSize: '6.6rem',
+            },
+            h2: {
+              fontWeight: 'bold',
+              fontSize: '3.3rem',
+            },
+            h3: {
+              fontWeight: 'bold',
+              fontSize: '2.5rem',
+            },
+        },
+        buttonIcon: {
+          color: "#ffffff",
+      },
+    });
 
-          <Route path='/feedback' component={() => {
-            window.location.href = 'https://google.com';
-            return null;
-          }}/>
-          <Route path="/*" element={<Error/>} />
-      </Routes>
-    </Router>
+    themeDark = responsiveFontSizes(themeDark);
+    themeLight = responsiveFontSizes(themeLight);
+
+    const [light, setLight] = React.useState(false);
+
+    return(
+      <ThemeProvider theme={light ? themeLight : themeDark}>
+        <CssBaseline />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+
+            <Route path="/post" element={<Post />} />
+            <Route path="/postlist" element={<PostList />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path='/feedback' component={() => {
+              window.location.href = 'https://google.com';
+              return null;
+            }}/>
+            <Route path="/*" element={<Error/>} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 
