@@ -91,15 +91,17 @@ const ResponsiveNavBar = ({setTheme}) => {
         const q = query(collection(db, "users"), where("uid", "==", user?.uid));
         const doc = await getDocs(q);
         const data = doc.docs[0].data();
-        setName(data.name);
+        if (data.name) {
+          setName(data.name);
+          console.log(data.name)
+        }
       } catch (err) {
         console.error(err);
-        alert("An error occured while fetching user data");
       }
     };
     useEffect(() => {
       if (loading) return;
-      if (!user) return;
+      if (!user) return navigate("/login") ;
       fetchUserName();
     }, [user, loading]);
 
@@ -183,7 +185,9 @@ const ResponsiveNavBar = ({setTheme}) => {
             vertical: 'top',
             horizontal: 'right',
         }} open={Boolean(anchorElUser)} onClose={handleCloseUserMenu}>
-            <Typography textAlign="center" sx={{ color: "#222222" }} >{name}</Typography>
+          <MenuItem key="status" >
+            <Typography textAlign="center" sx={{ color: "#222222" }} >{name ? "Signed in as "+ name : "Not signed in"}</Typography>
+          </MenuItem>
               {settings.map((setting) => (<MenuItem key={setting} onClick={() => settingOnClick}>
                   <Typography textAlign="center" sx={{ color: "#222222" }} >{setting}</Typography>
 

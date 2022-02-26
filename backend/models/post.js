@@ -37,10 +37,9 @@ module.exports = class Post {
           })
     }
 
-    obtainLabels() {
-        getLabels(this.imagePath).then((labels) => {
-            this.label = labels
-        })
+    async obtainLabels() {
+        const labels = await getLabels(this.imagePath)
+        this.label = labels
     }
 
     static fetchAll(cb) {
