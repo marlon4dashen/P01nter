@@ -5,7 +5,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { maxWidth } from '@mui/system';
 import users from '../helpers/local-storage.json';
 import Post from './Post';
 import { dividerClasses } from '@mui/material';
@@ -38,7 +37,7 @@ class PostList extends Component {
     render() {
         return (
             <>
-            <Box>
+            <Box  sx={ {ml:69 }}>
                 <Box sx={{ fontSize: 16, margin: 1 }}>
                     Sort by:
                 </Box>
@@ -58,7 +57,7 @@ class PostList extends Component {
                 </Box>
             </Box>
 
-            <Box>
+            <Box sx={{ width: 0.5, mx: 70}}>
                 {this.state.postarr.map(post => {
                     return <Post post={post} />
                 })}

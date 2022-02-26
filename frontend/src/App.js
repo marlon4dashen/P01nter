@@ -1,7 +1,7 @@
 import React, { useState, ReactElement } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
-import './App.css';
-
+import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import Home from './pages/Home';
 import About from './pages/About';
 import Login from './pages/Login';
@@ -9,8 +9,8 @@ import Error from './pages/Error';
 import Dashboard from './pages/Dashboard';
 import Post from './components/Post';
 import PostList from './components/PostList';
-import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
+import CreatePost from './components/CreatePost';
+import './App.css';
 
 const App = () => {
   let themeDark = createTheme()
@@ -37,6 +37,7 @@ const App = () => {
         },
       });
 
+  
     themeDark = createTheme({
         palette: {
           background: {
@@ -82,6 +83,7 @@ const App = () => {
 
             <Route path="/post" element={<Post />} />
             <Route path="/postlist" element={<PostList />} />
+            <Route path="/createpost" element={<CreatePost />} />
             <Route path="/login" element={<Login/>} />
             <Route path='/feedback' component={() => {
               window.location.href = 'https://google.com';

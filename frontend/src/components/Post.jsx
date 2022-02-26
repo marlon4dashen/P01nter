@@ -64,7 +64,7 @@ class Post extends Component {
       render() {
         return (
         <>
-            <Card sx={{ maxWidth: 400, marginTop: 5 }}>
+            <Card sx={{ marginTop: 5}}>
                 <CardHeader
                     avatar={
                         <Avatar

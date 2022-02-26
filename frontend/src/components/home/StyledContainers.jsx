@@ -23,4 +23,7 @@ export const CanvasContainer = styled.div`
     position: relative;
     right:25vw;
     z-index: 5;
+    background-image: "/frontend/public/layered-waves.png";
+
+    }
 `;

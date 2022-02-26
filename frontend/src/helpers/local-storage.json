@@ -1,17 +1,9 @@
 [
     {
-        "image-url":"https://cdn.britannica.com/26/95926-050-0228E1A6/London-Eye-River-Thames.jpg",
-        "userName":"Amy",
-        "description":"London Eye is one of most popular tourist attractions in London!",
-        "label":["lake","sky wheel"],
-        "type":"Landmark",
-        "likes":2
-    },
-    {
         "image-url":"https://www.grunge.com/img/gallery/the-bizarre-history-of-the-eiffel-tower/intro-1602781703.jpg",
         "userName":"Andy",
         "description":"It would be a pity if you had never been here!",
-        "label":["bridge","towel","lake","park"],
+        "label":["bridge","tower","lake","park"],
         "type":"Landmark",
         "likes":8
     },
