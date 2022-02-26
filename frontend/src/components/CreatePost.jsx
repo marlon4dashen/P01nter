@@ -50,7 +50,25 @@ const CreatePost = () => {
     };
 
     const submit = () => {
-        
+        const formData = new FormData()
+        formData.append('username', "Marlon")
+        formData.append('description', text)
+        formData.append('type', type)
+        formData.append('image', uploadedFiles[0])
+        let url = "http://localhost:5000/post"
+        let method = "POST"
+
+        fetch(url, {
+            method: method,
+            body: formData
+        }).then(resp => {
+            if (resp.status === 200 ) {
+                console.log("Success")
+                
+            }else{
+                throw new Error("Failed to upload")
+            }
+        })
     }
 
     return (
