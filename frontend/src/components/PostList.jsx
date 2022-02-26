@@ -17,7 +17,7 @@ const PostList = () => {
 
     return (
         <>
-            <Box>
+            <Box sx={ {ml:94 }} >
                 <Box sx={{ fontSize: 16, margin: 1 }}>
                     Sort by:
                 </Box>
@@ -36,8 +36,8 @@ const PostList = () => {
                     </FormControl>
                 </Box>
             </Box>
-
-            <Box>
+            
+            <Box  sx={{mx:95}}>
                 {users.map(usr => {
                     return <Post user={usr}/>
                 })}

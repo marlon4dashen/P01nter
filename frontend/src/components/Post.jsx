@@ -39,7 +39,7 @@ const Post = ({user}) => {
 
     return (
         <>
-            <Card sx={{ maxWidth: 400, marginTop: 5 }}>
+            <Card sx={{ maxWidth: 400, marginTop: 5}}>
                 <CardHeader
                     avatar={
                         <Avatar
