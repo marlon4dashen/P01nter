@@ -54,16 +54,4 @@ module.exports = class Post {
         });
     }
 
-    toJson() {
-        return {
-            "username": this.username,
-            "description": this.description,
-            "imagePath": this.imagePath,
-            "type": this.type,
-            "likes": this.likes,
-            "labels": this.label,
-            "id": this.id
-        }
-    }
-
 }
