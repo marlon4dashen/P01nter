@@ -12,6 +12,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
 class Post extends Component {
+
+
     state = {
         username: '',
         description: '',
@@ -25,7 +27,8 @@ class Post extends Component {
     userProfile = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
 
       componentDidMount() {
-        const postId = "135243";
+          console.log(this.props)
+        const postId = this.props.post.id;
         fetch('http://localhost:5000/post/' + postId)
           .then(res => {
             res.json().then(resData => {

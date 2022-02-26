@@ -24,6 +24,10 @@ exports.getPost = (req, res, next) => {
     console.log(postId)
     Post.findById(postId, (post) => {
         console.log(post)
+        res.set({
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        });
         res.status(201).json(post)
     })
 }
