@@ -3,11 +3,11 @@ import AboutSection from '../components/about/AboutSection';
 import Footer from '../components/basic/Footer';
 import ResponsiveNavBar from '../components/basic/ResponsiveNavBar';
 const About = () => {
-    return <>
+    return <div className="about">
         <ResponsiveNavBar/>
         <AboutSection/>
         <Footer/>
-    </>;
+    </div>;
 };
 
 export default About;

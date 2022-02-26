@@ -20,7 +20,7 @@ const Home = () => {
     }
 
     return(
-      <>
+      <div className="home">
         <ResponsiveNavBar/>
           <IntroContainer>
               <Typography variant="h1">Hello World 🌎</Typography>
@@ -37,8 +37,9 @@ const Home = () => {
                     </Suspense>
                 </Canvas>
           </CanvasContainer>
+
         <Footer/>
-      </>
+      </div>
     );
 };
 
