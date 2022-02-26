@@ -8,10 +8,10 @@ import MyDropzone from './MyDropZone';
 const SimpleDialog = ({ onClose, setFiles, uploadedFiles, open }) => {
 
     return (
-      <Dialog  fullWidth={true} maxWidth={"lg"} onClose={onClose} open={open}>
+      <Dialog fullWidth={true} maxWidth={"md"} onClose={onClose} open={open}>
         <DialogTitle sx={{color:"black"}} >Upload Photo</DialogTitle>
-            <DialogContent>
-                <MyDropzone 
+            <DialogContent sx={{color: "black"}}>
+                <MyDropzone class="dropbox" 
                     setFiles={setFiles}
                     uploadedFiles={uploadedFiles}
                 />
