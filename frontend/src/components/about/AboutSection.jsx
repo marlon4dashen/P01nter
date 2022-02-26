@@ -4,17 +4,7 @@ import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Box from '@mui/material/Box';
-import { Divider, CardMedia, Avatar } from "@mui/material";
-import { makeStyles } from '@mui/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// const faces = [
-//     "/avatar1.png",
-//     "/avatar2.png",
-//     "/avatar3.png",
-// ];
-
-
+import { Divider, CardMedia} from "@mui/material";
 
 
 const introduction = "We are a group of enthusiastic student developers from McMaster University. HANDBOOK is a project we made during VTHACKS IX 2022 to help people explore the world."
@@ -22,13 +12,11 @@ const inspiration = "Due to the Covid-19 pandemic, people around the world suffe
 
 
 function AboutSection() {
-    // const classes = useStyles();
     return (
     <Card style={{backgroundColor: "#222222"}} sx={{ display: 'flex', justifyContent: 'center'}}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <CardMedia
       component="img"
-      sx={{ml:10,width: 1100 }}
       image="handbook.png"
       alt="handbook cover"
       />
@@ -56,12 +44,6 @@ function AboutSection() {
             variant={"h8"}>
                     {introduction}
             </Typography>
-            {/* <CardContent className={classes.avatars}>
-            {faces.map(face => (
-                        <Avatar className={classes.avatar} key={face} src={face} />
-                        ))}
-                    </CardContent>
-            <Divider className={classes.divider} light /> */}
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
         <CardMedia
@@ -84,7 +66,7 @@ function AboutSection() {
       alt="Image"
       />
         </Box>
-        <Box sx={{ml:60}}>
+        <Box display='flex' justifyContent='center'>
         <Typography variant="subtitle1" gutterBottom='true' component="div">
         Created with ❤️ during VTHacks 2022
           </Typography>
