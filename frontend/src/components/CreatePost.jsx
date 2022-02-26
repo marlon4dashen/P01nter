@@ -78,7 +78,7 @@ const CreatePost = () => {
 
     return (
         <>
-            <Card sx={{ width:0.5}} style={{backgroundColor: "#333333"}}>
+            <Card sx={{ width:0.5, ml:69, mt:5}} style={{backgroundColor: "#333333"}}>
                 <CardHeader
                     avatar={
                         <Avatar
