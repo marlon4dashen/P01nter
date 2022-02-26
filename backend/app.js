@@ -7,7 +7,6 @@ const rootDir = require('./util/path')
 const adminRoutes = require('./routes/admin')
 
 const app = express();
-app.use(express.json());
 app.use(bodyParser.json())
 
 // const fileStorage = multer.diskStorage({
@@ -32,7 +31,7 @@ const fileStorage = multer.diskStorage({
 
 app.use(multer({ storage : fileStorage }).single('image'))
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'data', 'images')));
+app.use('/data/images', express.static(path.join(__dirname, 'data', 'images')));
 
 
 app.use(adminRoutes)
