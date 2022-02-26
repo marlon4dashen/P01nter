@@ -11,6 +11,7 @@ import Post from './components/Post';
 import PostList from './components/PostList';
 import { ThemeProvider, createTheme, responsiveFontSizes } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import CreatePost from './components/CreatePost';
 
 const App = () => {
   let themeDark = createTheme()
