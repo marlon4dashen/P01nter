@@ -20,7 +20,6 @@ import { grey } from '@mui/material/colors';
 
 const pages = ['Home', 'About', 'Dashboard', 'Feedback'];
 const settings = ['Profile', 'Account'];
-const defaultColor = grey[800]
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -66,7 +65,7 @@ const StyledInputBase = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const ResponsiveNavBar = () => {
+const ResponsiveNavBar = ({setTheme}) => {
     const navigate = useNavigate();
     const [searchField, setSearchField] = React.useState('');
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -94,7 +93,7 @@ const ResponsiveNavBar = () => {
       console.log(setting.toLowerCase());
   }
 
-    return (<AppBar position="static" color = "inherit">
+    return (<AppBar position="sticky" sx={{ bgcolor: "#222222" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h4" noWrap component="div" sx={{ mr: 2, fontWeight: 'bold', display: { xs: 'none', md: 'flex' } }}>
@@ -102,7 +101,7 @@ const ResponsiveNavBar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
+            <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} sx={{ color: 'white' }}>
               <MenuIcon />
             </IconButton>
             <Menu id="menu-appbar" anchorEl={anchorElNav} anchorOrigin={{
@@ -114,7 +113,7 @@ const ResponsiveNavBar = () => {
         }} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu} sx={{
             display: { xs: 'block', md: 'none' },
         }}>
-              {pages.map((page) => (<MenuItem key={page} onClick={() => pagesOnClick(page)}>
+              {pages.map((page) => (<MenuItem key={page} sx={{ color: "#222222" }} onClick={() => pagesOnClick(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>))}
             </Menu>
@@ -123,7 +122,7 @@ const ResponsiveNavBar = () => {
             HANDBOOK
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (<Button key={page} onClick={() => pagesOnClick(page)} sx={{ my: 2, display: 'block', color: defaultColor}}>
+            {pages.map((page) => (<Button key={page} onClick={() => pagesOnClick(page)} sx={{ my: 2, display: 'block', color: 'white' }}>
                 {page}
               </Button>))}
           </Box>
@@ -152,7 +151,7 @@ const ResponsiveNavBar = () => {
 
             <Tooltip title="Open settings">
               <IconButton aria-label="Avatar" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Face sx={{ fontSize: 35,color: defaultColor }}/>
+                <Face sx={{ fontSize: 35,color: 'white' }}/>
               </IconButton>
             </Tooltip>
             <Menu sx={{ mt: '45px' }} id="menu-appbar" anchorEl={anchorElUser} anchorOrigin={{
@@ -163,11 +162,11 @@ const ResponsiveNavBar = () => {
             horizontal: 'right',
         }} open={Boolean(anchorElUser)} onClose={handleCloseUserMenu}>
               {settings.map((setting) => (<MenuItem key={setting} onClick={() => settingOnClick}>
-                  <Typography textAlign="center" sx={{ color: defaultColor }} >{setting}</Typography>
+                  <Typography textAlign="center" sx={{ color: "#222222" }} >{setting}</Typography>
 
                 </MenuItem>))}
                 <MenuItem key="Logout" onClick={logout}>
-                  <Typography textAlign="center" sx={{ color: defaultColor }} >Logout</Typography>
+                  <Typography textAlign="center" sx={{ color: "#222222" }} >Logout</Typography>
 
                 </MenuItem>
             </Menu>
