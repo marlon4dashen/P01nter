@@ -25,6 +25,7 @@ async function getLabels(imagePath) {
     landmarks.forEach(landmark => console.log(landmark));
     keys.landmarks = landmarks
 
+    return keys
 }
 
 module.exports = getLabels

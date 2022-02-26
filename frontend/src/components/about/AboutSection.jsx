@@ -17,8 +17,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 
 
-const introduction = "We are a group of enthusiastic student developer from McMaster University. Friday is a project we made during StormHacks 2022 to support people with mental disorder."
-const inspiration = "Depression is a common illness worldwide, with estimately 280 million of the population affected. One of the ways to deal with any overwhelming emotion is to find a healthy way to express yourself. This makes a journal a helpful tool in managing your mental health. Journaling can help you manage anxiety, reduce stress. When you have a problem and you're stressed, keeping a journal can help you identify what’s causing that stress or anxiety. Once you’ve identified your stressors, you can work on a plan to resolve the problems and reduce your stress."
+const introduction = "We are a group of enthusiastic student developers from McMaster University. HANDBOOK is a project we made during VTHACKS IX 2022 to help people explore the world."
+const inspiration = "Due to the Covid-19 pandemic, people around the world suffer from travel restrictions. By desgining a travel webiste with vivid images and destination information, we hope to eourage those who are in depression and would like to be on a trip in the future. "
 
 
 function AboutSection() {
@@ -26,13 +26,19 @@ function AboutSection() {
     return (
     <Card style={{backgroundColor: "#222222"}} sx={{ display: 'flex', justifyContent: 'center'}}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
+      <CardMedia
+      component="img"
+      sx={{ml:10,width: 1100 }}
+      image="handbook.png"
+      alt="handbook cover"
+      />
+        <CardContent sx={{ ml:15,flex: '1 0 auto' }}>
         <Divider light />
           <Typography component="div" variant="h3">
             Inspiration
           </Typography>
           <Typography variant="subtitle1" gutterBottom='true' component="div">
-            StormHacks 2022 Project
+          VTHACKS IX 2022 Project
           </Typography>
           <Typography
             gutterBottom='true'
@@ -60,11 +66,28 @@ function AboutSection() {
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
         <CardMedia
         component='video'
-        sx={{ width: 500 }}
+        sx={{ml:15, height:250, width: 300 }}
         alt="Video"
         image={"about.mp4"}
         autoPlay
       />
+      <CardMedia
+      component="img"
+      sx={{ml:5, height:200,width: 300 }}
+      image="travel.jpg"
+      alt="Image"
+      />
+      <CardMedia
+      component="img"
+      sx={{ml:5, width: 300 }}
+      image="travel2.jpg"
+      alt="Image"
+      />
+        </Box>
+        <Box sx={{ml:60}}>
+        <Typography variant="subtitle1" gutterBottom='true' component="div">
+        Created with ❤️ during VTHacks 2022
+          </Typography>
         </Box>
       </Box>
     </Card>
