@@ -18,7 +18,7 @@ function AboutSection() {
       <CardMedia
       component="img"
       sx={{display:'flex',justifyContent:'center'}}
-      image="pointer.png"
+      image="pointer.jpg"
       alt="pointer cover"
       />
         <CardContent sx={{ ml:15,mr:15 }}>
@@ -62,7 +62,7 @@ function AboutSection() {
       />
       <CardMedia
       component="img"
-      sx={{ml:5, width: 320 }}
+      sx={{ml:5,height:200, width: 320 }}
       image="travel2.jpg"
       alt="Image"
       />
