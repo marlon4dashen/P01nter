@@ -25,5 +25,14 @@
         "label":["falls","park"],
         "type":"Landscape",
         "likes":15
+    },
+    {
+        "id": "134634",
+        "imagePath":"/data/images/73c7a858-c4eb-4308-aeb2-e32b1029bb36.jpg",
+        "username":"David",
+        "description":"I am so shock with Nigara Falls!!!",
+        "label":["falls","park"],
+        "type":"Landscape",
+        "likes":15
     }
 ]

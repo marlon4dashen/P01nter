@@ -5,10 +5,20 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import users from '../helpers/local-storage.json';
 import Post from './Post';
 import { dividerClasses } from '@mui/material';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 class PostList extends Component {
     state = {
@@ -43,24 +53,50 @@ class PostList extends Component {
                 </Box>
                 <Box sx={{ maxWidth: 240, margin: 1 }}>
                     <FormControl fullWidth>
-                        <InputLabel>Type</InputLabel>
+                        <InputLabel>
+                            <Typography sx={{color:"white"}}>Type</Typography>
+                        </InputLabel>
                         <Select
                             value={this.type}
                             label="Type"
                             onChange={this.typeSelection}
                         >
-                        <MenuItem value={"Food"}>Food</MenuItem>
-                        <MenuItem value={"Views"}>Views</MenuItem>
-                        <MenuItem value={"People"}>People</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Food"}>Food</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Views"}>Views</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"People"}>People</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
             </Box>
 
-            <Box sx={{ width: 0.5, mx: 70}}>
+            {/* <Box sx={{ width: 0.5, mx: 70}}>
                 {this.state.postarr.map(post => {
                     return <Post post={post} />
                 })}
+
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <Item>xs=6</Item>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Item>xs=6</Item>
+                    </Grid>
+                </Grid>
+
+            </Box> */}
+            <Box sx={{ width: 0.5, mx: 70}}>
+                <Grid container spacing={2}>
+                    {this.state.postarr.map(post => {
+                        return (
+                            <>
+                                <Grid item xs={6}>
+                                    <Item><Post post={post} /></Item>
+                                </Grid>
+                            </>
+                        );
+                    })}
+                    
+                </Grid>
 
             </Box>
         </>
