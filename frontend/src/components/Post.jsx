@@ -64,7 +64,7 @@ class Post extends Component {
       render() {
         return (
         <>
-            <Card sx={{ marginTop: 5}}>
+            <Card sx={{ marginTop: 5}} style={{backgroundColor: "#333333"}}>
                 <CardHeader
                     avatar={
                         <Avatar
@@ -72,8 +72,8 @@ class Post extends Component {
                             sx={{ width: 56, height: 56 }}
                         />
                     }
-                title={this.state.username}
-                subheader="September 14, 2016"
+                title={<Typography sx={{color:"white"}}>{this.state.username}</Typography>}
+                subheader={<Typography sx={{color:"#ADACAC", fontSize: 12}}>September 14, 2016</Typography>}
                 sx = {{
                     color: "black"
                 }}
@@ -83,19 +83,19 @@ class Post extends Component {
                     image={this.state.image}
                 />
                 <CardContent>
-                    <Typography variant="body3" color="black">
+                    <Typography variant="body3" color="white">
                         {this.state.description}
                     </Typography>
-                    <Typography sx={{marginTop: 1}} variant="body2" color="text.secondary">
+                    <Typography sx={{marginTop: 1}} variant="body2" color="#ADACAC">
                         {"Labels: " + this.state.label.join(", ")}
                     </Typography>
                 </CardContent>
-                <CardActions disableSpacing sx={{color:"black"}}>
+                <CardActions disableSpacing sx={{color:"white"}}>
                     <IconButton
                         aria-label="add to favorites"
                         onClick={this.likesOnClick}
                     >
-                        {(!this.state.pressed) ? <FavoriteIcon /> : <FavoriteIcon sx={{color: 'red'}}/>}
+                        {(!this.state.pressed) ? <FavoriteIcon sx={{color: "#8B8989"}} /> : <FavoriteIcon sx={{color: '#BF6666'}}/>}
                     </IconButton>
                     {this.state.likes}
                 </CardActions>
