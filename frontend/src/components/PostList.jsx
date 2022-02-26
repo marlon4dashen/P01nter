@@ -4,7 +4,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { maxWidth } from '@mui/system';
 import users from '../helpers/local-storage.json';
 import Post from './Post';
 
@@ -17,7 +16,7 @@ const PostList = () => {
 
     return (
         <>
-            <Box sx={ {ml:94 }} >
+            <Box sx={ {ml:69 }} >
                 <Box sx={{ fontSize: 16, margin: 1 }}>
                     Sort by:
                 </Box>
@@ -37,7 +36,7 @@ const PostList = () => {
                 </Box>
             </Box>
             
-            <Box  sx={{mx:95}}>
+            <Box  sx={{ width: 0.5, mx: 70}}>
                 {users.map(usr => {
                     return <Post user={usr}/>
                 })}

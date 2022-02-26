@@ -9,7 +9,7 @@ import Error from './pages/Error';
 import Dashboard from './pages/Dashboard';
 import Post from './components/Post';
 import PostList from './components/PostList';
-
+import CreatePost from './components/CreatePost';
 
 const App = () => {
   return (
@@ -22,6 +22,7 @@ const App = () => {
 
           <Route path="/post" element={<Post />} />
           <Route path="/postlist" element={<PostList />} />
+          <Route path="/createpost" element={<CreatePost />} />
 
           <Route path='/feedback' component={() => {
             window.location.href = 'https://google.com';
