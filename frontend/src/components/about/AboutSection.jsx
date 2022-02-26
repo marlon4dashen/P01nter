@@ -26,11 +26,11 @@ function AboutSection() {
           <Typography component="div" variant="h3">
           Inspiration
           </Typography>
-          <Typography variant="subtitle1" gutterBottom='true' component="div">
+          <Typography variant="subtitle1" gutterBottom component="div">
           VTHACKS IX 2022 Project
           </Typography>
           <Typography
-            gutterBottom='true'
+            gutterBottom
             variant={"h8"}>
                     {inspiration}
             </Typography>
@@ -38,7 +38,7 @@ function AboutSection() {
             <Typography component="div" variant="h3">
             About Us
           </Typography>
-          <Typography variant="subtitle1" gutterBottom='true' component="div">
+          <Typography variant="subtitle1" gutterBottom component="div">
             Team EmotionDamage
           </Typography>
           <Typography
@@ -46,10 +46,10 @@ function AboutSection() {
                     {introduction}
             </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', pl: 1, pb: 1 }}>
         <CardMedia
         component='video'
-        sx={{ml:15, height:250, width: 320 }}
+        sx={{ height:250, width: 320 }}
         alt="Video"
         image={"about.mp4"}
         autoPlay
@@ -68,7 +68,7 @@ function AboutSection() {
       />
         </Box>
         <Box display='flex' justifyContent='center'>
-        <Typography variant="subtitle1" gutterBottom='true' component="div">
+        <Typography variant="subtitle1" gutterBottom component="div">
         Created with ❤️ during VTHacks 2022
           </Typography>
         </Box>
