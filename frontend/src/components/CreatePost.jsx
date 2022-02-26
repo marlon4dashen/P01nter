@@ -18,6 +18,8 @@ import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import SimpleDialog from './SimpleDialog';
 import { Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 const CreatePost = () => {
     const userProfile = "https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -131,7 +133,8 @@ const CreatePost = () => {
                     <IconButton onClick={uploadPhoto}>
                         <InsertPhotoIcon sx={{color:"white"}} />
                     </IconButton>
-                    <IconButton sx={{ml: 105}} onClick={submit}>
+                    <IconButton sx={{width: 0.91}} />
+                    <IconButton onClick={submit}>
                         <SendIcon sx={{color:"white"}} />
                     </IconButton>
                 </CardActions>
