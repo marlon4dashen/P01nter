@@ -1,11 +1,59 @@
 [
     {
-        "image":"",
-        "userName":"",
-        "description":"Nice place",
-        "label":"",
-        "type":"food",
-        "likes":5,
+        "image-url":"https://cdn.britannica.com/26/95926-050-0228E1A6/London-Eye-River-Thames.jpg",
+        "userName":"Amy",
+        "description":"London Eye is one of most popular tourist attractions in London!",
+        "label":["lake","sky wheel"],
+        "type":"Landmark",
+        "likes":2
     },
+    {
+        "image-url":"https://www.grunge.com/img/gallery/the-bizarre-history-of-the-eiffel-tower/intro-1602781703.jpg",
+        "userName":"Andy",
+        "description":"It would be a pity if you had never been here!",
+        "label":["bridge","towel","lake","park"],
+        "type":"Landmark",
+        "likes":8
+    },
+    {
+        "image-url":"https://a.cdn-hotels.com/gdcs/production38/d638/73c7a858-c4eb-4308-aeb2-e32b1029bb36.jpg",
+        "userName":"David",
+        "description":"I am so shock with Nigara Falls!!!",
+        "label":["falls","park"],
+        "type":"Landscape",
+        "likes":15
+    },
+    {
+        "image-url":"https://www.planetware.com/wpimages/2020/04/ireland-dublin-to-cliffs-of-moher-best-ways-to-get-there-by-tour.jpg",
+        "userName":"Sindy",
+        "description":"Nice cliff!",
+        "label":["cliff","sea","grass"],
+        "type":"Landscape",
+        "likes":10
+    },
+    {
+        "image-url":"https://www.greekboston.com/wp-content/uploads/2016/08/Oia-Santorini.jpg",
+        "userName":"Cindy",
+        "description":"I wish I could live in Santorini!",
+        "label":["sea","bay","town"],
+        "type":"Landscape",
+        "likes":23
+    },
+    {
+        "image-url":"https://www.undercanvas.com/wp-content/uploads/2021/07/Grand-Canyon-scaled.jpg",
+        "userName":"Andrew",
+        "description":"Good place!",
+        "label":["river","cliff"],
+        "type":"Landscape",
+        "likes":5
+    },
+    {
+        "image-url":"https://www.undercanvas.com/wp-content/uploads/2021/07/Grand-Canyon-scaled.jpg",
+        "userName":"Andrew",
+        "description":"Good place!",
+        "label":["river","cliff"],
+        "type":"Landscape",
+        "likes":5
+    }
 
 ]
