@@ -37,6 +37,30 @@
   }
 }
 
+.home{
+  background-image: "/frontend/public/layered-waves.png";
+  height: 100vh;
+  width:100vw;
+  z-index: 99;
+}
+
+.link {
+  color: #FFF;
+}
+.link:hover {
+   color:rgba(255, 255, 255, 0.79);
+}
+
+
+.about{
+  background-image: "/frontend/public/layered-waves.svg";
+  position: absolute;
+  top: 0;
+  left:0;
+  height: max-content;
+  z-index: 20;
+}
+
 
 .footer {
   position:absolute;
