@@ -115,7 +115,7 @@ const CreatePost = () => {
                     <IconButton onClick={uploadPhoto}>
                         <InsertPhotoIcon sx={{color:"white"}} />
                     </IconButton>
-                    <IconButton sx={{width: 0.9}} />
+                    <IconButton sx={{width: 0.87}} />
                     <IconButton onClick={submit}>
                         <SendIcon sx={{color:"white"}} />
                     </IconButton>
