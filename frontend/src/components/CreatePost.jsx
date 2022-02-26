@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { auth, db, logout } from "../helpers/Firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,7 +11,6 @@ import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,8 +19,13 @@ import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import SimpleDialog from './SimpleDialog';
 
+
 const CreatePost = () => {
     const userProfile = "https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+
+    // const navigate = useNavigate();
+    // const [user, loading, error] = useAuthState(auth);
+    // const [name, setName] = useState("");
 
     const [type, setType] = useState('')
 
@@ -69,6 +77,21 @@ const CreatePost = () => {
             }
         })
     }
+    // const fetchUserName = async () => {
+    //     try {
+    //       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+    //       const doc = await getDocs(q);
+    //       const data = doc.docs[0].data();
+    //       setName(data.name);
+    //     } catch (err) {
+    //       console.error(err);
+    //     }
+    //   };
+    //   useEffect(() => {
+    //     if (loading) return;
+    //     if (!user) return;
+    //     fetchUserName();
+    //   }, [user, loading]);
 
     return (
         <>

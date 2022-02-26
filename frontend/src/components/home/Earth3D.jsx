@@ -34,7 +34,7 @@ export function Earth3D(props) {
         {/* <hemisphereLight intensity={1} /> */}
       <ambientLight intensity={1.5} />
       <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={2.2} />
-      <mesh ref={cloudsRef} position={[-1, 0, 3]} scale={active ? 1.5 : 1} onClick={() => setActive(!active)}>
+      <mesh ref={cloudsRef} position={[-0.8, 0, 3]} scale={active ? 1.5 : 1} onClick={() => setActive(!active)}>
         <Stars/>
         <sphereGeometry args={[1, 32, 32]} />
         <meshLambertMaterial
@@ -45,7 +45,7 @@ export function Earth3D(props) {
           side={THREE.DoubleSide}
         />
       </mesh>
-      <mesh ref={earthRef} position={[-1, 0, 3]} scale={active ? 1.5 : 1} onClick={() => setActive(!active)}>
+      <mesh ref={earthRef} position={[-0.8, 0, 3]} scale={active ? 1.5 : 1} onClick={() => setActive(!active)}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshLambertMaterial specularMap={specularMap} />
         <meshStandardMaterial
