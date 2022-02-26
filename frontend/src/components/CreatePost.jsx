@@ -14,7 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
-import { DropzoneArea } from 'material-ui-dropzone';
 import SimpleDialog from './SimpleDialog';
 
 const CreatePost = () => {
@@ -36,7 +35,7 @@ const CreatePost = () => {
     const typeSelection = (event) => {
         setType(event.target.value);
     };
-    
+
     const textOnChange = (e) => {
         setText(e.target.value)
     }
@@ -44,13 +43,13 @@ const CreatePost = () => {
     const handleClickOpen = () => {
         setOpen(true);
       };
-    
+
     const handleClose = () => {
         setOpen(false);
     };
 
     const submit = () => {
-        
+
     }
 
     return (
