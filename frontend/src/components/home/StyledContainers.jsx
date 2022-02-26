@@ -21,7 +21,6 @@ export const CanvasContainer = styled.div`
     width: 100vw;
     height: 89vh;
     position: relative;
-    right:25vw;
     z-index: 5;
     background-image: "/frontend/public/layered-waves.png";
 
