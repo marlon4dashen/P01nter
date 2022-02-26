@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,7 +16,9 @@ import { styled, alpha } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { auth, db, logout } from "../../helpers/Firebase";
-import { grey } from '@mui/material/colors';
+
+import { query, collection, getDocs, where } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const pages = ['Home', 'About', 'Dashboard', 'Feedback'];
 const settings = ['Profile', 'Account'];
@@ -67,6 +69,8 @@ const StyledInputBase = styled(TextField)(({ theme }) => ({
 
 const ResponsiveNavBar = ({setTheme}) => {
     const navigate = useNavigate();
+    const [user, loading, error] = useAuthState(auth);
+    const [name, setName] = useState("");
     const [searchField, setSearchField] = React.useState('');
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -82,18 +86,40 @@ const ResponsiveNavBar = ({setTheme}) => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+    const fetchUserName = async () => {
+      try {
+        const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+        const doc = await getDocs(q);
+        const data = doc.docs[0].data();
+        setName(data.name);
+      } catch (err) {
+        console.error(err);
+        alert("An error occured while fetching user data");
+      }
+    };
+    useEffect(() => {
+      if (loading) return;
+      if (!user) return;
+      fetchUserName();
+    }, [user, loading]);
 
     const pagesOnClick = (page) => {
         setAnchorElNav(null);
-        navigate('../'+page.toLowerCase())
+        if (page == "Feedback"){
+          window.open('https://github.com/manyicheng/Handbook', '_blank');
+        }else{
+          navigate('../'+page.toLowerCase())
+        }
     }
 
     const settingOnClick = (setting) => {
       setAnchorElUser(null);
       console.log(setting.toLowerCase());
-  }
+    }
 
-    return (<AppBar position="sticky" sx={{ bgcolor: "#222222" }}>
+
+    return (
+    <AppBar position="sticky" sx={{ bgcolor: "#222222" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h4" noWrap component="div" sx={{ mr: 2, fontWeight: 'bold', display: { xs: 'none', md: 'flex' } }}>
