@@ -1,7 +1,11 @@
 import React from 'react';
+import ResponsiveNavBar from '../components/basic/ResponsiveNavBar';
 
 const Login = () => {
-    return <div>This is my login page</div>;
+    return <>
+        <ResponsiveNavBar/>
+        This is my login page
+    </>;
 };
 
 export default Login;
