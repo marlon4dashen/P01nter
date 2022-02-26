@@ -3,7 +3,7 @@
         "image":"",
         "userName":"",
         "description":"Nice place",
-        "label":"",
+        "labels": ["beach", "sea"],
         "type":"food",
         "likes":5,
     },
