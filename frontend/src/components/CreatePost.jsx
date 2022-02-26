@@ -50,7 +50,7 @@ const CreatePost = () => {
     };
 
     const submit = () => {
-        
+        console.log("Final files: ", uploadedFiles)
     }
 
     return (
