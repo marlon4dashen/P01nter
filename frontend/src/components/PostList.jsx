@@ -8,7 +8,7 @@ import Select from '@mui/material/Select';
 import users from '../helpers/local-storage.json';
 import Post from './Post';
 import { dividerClasses } from '@mui/material';
-
+import { Typography } from '@mui/material';
 
 class PostList extends Component {
     state = {
@@ -43,15 +43,17 @@ class PostList extends Component {
                 </Box>
                 <Box sx={{ maxWidth: 240, margin: 1 }}>
                     <FormControl fullWidth>
-                        <InputLabel>Type</InputLabel>
+                        <InputLabel>
+                            <Typography sx={{color: "white"}}>Type</Typography>
+                        </InputLabel>
                         <Select
                             value={this.type}
                             label="Type"
                             onChange={this.typeSelection}
                         >
-                        <MenuItem value={"Food"}>Food</MenuItem>
-                        <MenuItem value={"Views"}>Views</MenuItem>
-                        <MenuItem value={"People"}>People</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Food"}>Food</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Views"}>Views</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"People"}>People</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
