@@ -11,7 +11,7 @@ const SimpleDialog = ({ onClose, setFiles, uploadedFiles, open }) => {
       <Dialog fullWidth={true} maxWidth={"md"} onClose={onClose} open={open}>
         <DialogTitle sx={{color:"black"}} >Upload Photo</DialogTitle>
             <DialogContent sx={{color: "black"}}>
-                <MyDropzone class="dropbox" 
+                <MyDropzone class="dropbox"
                     setFiles={setFiles}
                     uploadedFiles={uploadedFiles}
                 />

@@ -91,17 +91,20 @@ const ResponsiveNavBar = ({setTheme}) => {
         const q = query(collection(db, "users"), where("uid", "==", user?.uid));
         const doc = await getDocs(q);
         const data = doc.docs[0].data();
-        if (data.name) {
+
           setName(data.name);
           console.log(data.name)
-        }
+
       } catch (err) {
         console.error(err);
       }
     };
     useEffect(() => {
       if (loading) return;
-      if (!user) return navigate("/login") ;
+      if (!user) {
+        console.log(user + " user");
+        return;
+      } ;
       fetchUserName();
     }, [user, loading]);
 

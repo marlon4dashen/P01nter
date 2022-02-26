@@ -12,7 +12,7 @@ function MyDropzone({setFiles, uploadedFiles}) {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return (
-    <div class="dropbox"  {...getRootProps()}>
+    <div className="dropbox"  {...getRootProps()}>
       <input {...getInputProps()} />
       {
         isDragActive ?

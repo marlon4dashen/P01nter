@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { auth, db, logout } from "../helpers/Firebase";
-import { query, collection, getDocs, where } from "firebase/firestore";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
@@ -72,27 +69,12 @@ const CreatePost = () => {
         }).then(resp => {
             if (resp.status === 200 ) {
                 console.log("Success")
-                
+
             }else{
                 throw new Error("Failed to upload")
             }
         })
     }
-    // const fetchUserName = async () => {
-    //     try {
-    //       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-    //       const doc = await getDocs(q);
-    //       const data = doc.docs[0].data();
-    //       setName(data.name);
-    //     } catch (err) {
-    //       console.error(err);
-    //     }
-    //   };
-    //   useEffect(() => {
-    //     if (loading) return;
-    //     if (!user) return;
-    //     fetchUserName();
-    //   }, [user, loading]);
 
     return (
         <>
