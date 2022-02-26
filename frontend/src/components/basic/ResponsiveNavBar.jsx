@@ -168,10 +168,6 @@ const ResponsiveNavBar = ({setTheme}) => {
                     setSearchField(event.target.value)
                   }
                 }}
-              //   onChange={(event) => {
-              //       console.log(event.target.value);
-              // }}
-
               />
             </Search>
 
@@ -187,6 +183,7 @@ const ResponsiveNavBar = ({setTheme}) => {
             vertical: 'top',
             horizontal: 'right',
         }} open={Boolean(anchorElUser)} onClose={handleCloseUserMenu}>
+            <Typography textAlign="center" sx={{ color: "#222222" }} >{name}</Typography>
               {settings.map((setting) => (<MenuItem key={setting} onClick={() => settingOnClick}>
                   <Typography textAlign="center" sx={{ color: "#222222" }} >{setting}</Typography>
 

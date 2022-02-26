@@ -33,6 +33,7 @@ export function Earth3D(props) {
       <ambientLight intensity={1.5} />
       <pointLight color="#f6f3ea" position={[2, 0, 5]} intensity={2.2} />
       <mesh ref={cloudsRef} position={[0, 0, 3]}>
+        <Stars/>
         <sphereGeometry args={[1, 32, 32]} />
         <meshLambertMaterial
           map={cloudsMap}
