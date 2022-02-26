@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Error from './pages/Error';
 import Dashboard from './pages/Dashboard';
 import Post from './components/Post';
+import PostList from './components/PostList';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/post" element={<Post />} />
+          <Route path="/postlist" element={<PostList />} />
 
           <Route path='/feedback' component={() => {
             window.location.href = 'https://google.com';
