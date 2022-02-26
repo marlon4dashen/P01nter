@@ -37,6 +37,7 @@ const App = () => {
         },
       });
 
+  
     themeDark = createTheme({
         palette: {
           background: {
@@ -82,6 +83,7 @@ const App = () => {
 
             <Route path="/post" element={<Post />} />
             <Route path="/postlist" element={<PostList />} />
+            <Route path="/createpost" element={<CreatePost />} />
             <Route path="/login" element={<Login/>} />
             <Route path='/feedback' component={() => {
               window.location.href = 'https://google.com';
