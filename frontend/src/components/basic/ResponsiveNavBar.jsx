@@ -12,15 +12,63 @@ import Face from '@mui/icons-material/Face';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { styled, alpha } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
+import SearchIcon from '@mui/icons-material/Search';
 import { auth, db, logout } from "../../helpers/Firebase";
 import { grey } from '@mui/material/colors';
 
 const pages = ['Home', 'About', 'Dashboard', 'Feedback'];
 const settings = ['Profile', 'Account'];
 const defaultColor = grey[800]
+
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(TextField)(({ theme }) => ({
+  color: 'inherit',
+  autoFocus: 'true',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
+}));
+
 const ResponsiveNavBar = () => {
     const navigate = useNavigate();
-    const location = useLocation();
+    const [searchField, setSearchField] = React.useState('');
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const handleOpenNavMenu = (event) => {
@@ -80,7 +128,28 @@ const ResponsiveNavBar = () => {
               </Button>))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ display: 'inline-flex' }}>
+
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+                onKeyPress={(event) => {
+                  if (event.key === 'Enter'){
+                    console.log(event.target.value);
+                    setSearchField(event.target.value)
+                  }
+                }}
+              //   onChange={(event) => {
+              //       console.log(event.target.value);
+              // }}
+
+              />
+            </Search>
+
             <Tooltip title="Open settings">
               <IconButton aria-label="Avatar" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Face sx={{ fontSize: 35,color: defaultColor }}/>
