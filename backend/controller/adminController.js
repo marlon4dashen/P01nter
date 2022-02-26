@@ -6,13 +6,7 @@ exports.addPost = (req, res, next) => {
     const username = req.body.username
     const description = req.body.description
     const type = req.body.type
-    if (!req.file){
-        console.log("No picture added")
-    }else{
-        const image = req.file.path
-    }
-    // const imagePath = req.body.imagePath
-    const imagePath = image.replace("\\" ,"/");
+    const imagePath = req.file.path.replace("\\" ,"/");
     const post = new Post(null, username, description, type, imagePath)
     post.obtainLabels().then(() => {
         post.save().then(() => {
@@ -22,12 +16,18 @@ exports.addPost = (req, res, next) => {
 }
 
 exports.getPosts = (req, res, next) => {
-    res.status(201).json(postsData)
+    res.status(200).json(postsData)
 }
 
 exports.getPost = (req, res, next) => {
-    const postId = req.params.productId;
+    const postId = req.params.postID;
+    console.log(postId)
     Post.findById(postId, (post) => {
-        res.status(201).json(post.toJson())
+        console.log(post)
+        res.set({
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        });
+        res.status(201).json(post)
     })
 }

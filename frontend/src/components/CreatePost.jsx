@@ -57,7 +57,7 @@ const CreatePost = () => {
     };
 
     const submit = () => {
-
+        console.log("Final files: ", uploadedFiles)
     }
     // const fetchUserName = async () => {
     //     try {

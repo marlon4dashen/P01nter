@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -6,17 +7,37 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import users from '../helpers/local-storage.json';
 import Post from './Post';
+import { dividerClasses } from '@mui/material';
 
-const PostList = () => {
-    const [type, setType] = useState('')
 
-    const typeSelection = (event) => {
-        setType(event.target.value);
+class PostList extends Component {
+    state = {
+        type: '',
+        postarr: []
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:5000/posts')
+        .then(res => {
+            res.json().then(resData => {
+                this.setState({
+                    postarr: resData
+                });
+            })
+
+        })
+    }
+
+    typeSelection = (event) => {
+        this.setState({
+            type: event.target.value
+        })
     };
 
-    return (
-        <>
-            <Box sx={ {ml:69 }} >
+    render() {
+        return (
+            <>
+            <Box  sx={ {ml:69 }}>
                 <Box sx={{ fontSize: 16, margin: 1 }}>
                     Sort by:
                 </Box>
@@ -24,9 +45,9 @@ const PostList = () => {
                     <FormControl fullWidth>
                         <InputLabel>Type</InputLabel>
                         <Select
-                            value={type}
+                            value={this.type}
                             label="Type"
-                            onChange={typeSelection}
+                            onChange={this.typeSelection}
                         >
                         <MenuItem value={"Food"}>Food</MenuItem>
                         <MenuItem value={"Views"}>Views</MenuItem>
@@ -35,15 +56,16 @@ const PostList = () => {
                     </FormControl>
                 </Box>
             </Box>
-            
-            <Box  sx={{ width: 0.5, mx: 70}}>
-                {users.map(usr => {
-                    return <Post user={usr}/>
+
+            <Box sx={{ width: 0.5, mx: 70}}>
+                {this.state.postarr.map(post => {
+                    return <Post post={post} />
                 })}
 
             </Box>
         </>
-    );
+        )
+    }
 }
 
 export default PostList;
