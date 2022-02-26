@@ -5,7 +5,6 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
@@ -18,7 +17,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import SendIcon from '@mui/icons-material/Send';
 import SimpleDialog from './SimpleDialog';
-
+import { Typography } from '@mui/material';
 
 const CreatePost = () => {
     const userProfile = "https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
@@ -95,7 +94,7 @@ const CreatePost = () => {
 
     return (
         <>
-            <Card sx={{ width:0.5}}>
+            <Card sx={{ width:0.5}} style={{backgroundColor: "#333333"}}>
                 <CardHeader
                     avatar={
                         <Avatar
@@ -104,21 +103,23 @@ const CreatePost = () => {
                         />
                     }
                 title={<FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-                            <InputLabel>Type</InputLabel>
+                            <InputLabel>
+                                <Typography sx={{color: "white"}}>Type</Typography>
+                            </InputLabel>
                             <Select
                                 value={type}
                                 onChange={typeSelection}
                             >
-                            <MenuItem value={"Food"}>Food</MenuItem>
-                            <MenuItem value={"People"}>People</MenuItem>
-                            <MenuItem value={"Views"}>Views</MenuItem>
+                            <MenuItem sx={{color: "black"}} value={"Food"}>Food</MenuItem>
+                            <MenuItem sx={{color: "black"}} value={"People"}>People</MenuItem>
+                            <MenuItem sx={{color: "black"}} value={"Views"}>Views</MenuItem>
                             </Select>
                         </FormControl>
                     }
             />
                 <CardContent>
                     <TextField
-                        label="Start a post"
+                        label={<Typography sx={{color: "white"}}>Start a post</Typography>}
                         multiline
                         fullWidth
                         maxRows={4}
@@ -128,10 +129,10 @@ const CreatePost = () => {
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton onClick={uploadPhoto}>
-                        <InsertPhotoIcon />
+                        <InsertPhotoIcon sx={{color:"white"}} />
                     </IconButton>
                     <IconButton sx={{ml: 105}} onClick={submit}>
-                        <SendIcon />
+                        <SendIcon sx={{color:"white"}} />
                     </IconButton>
                 </CardActions>
             </Card>
