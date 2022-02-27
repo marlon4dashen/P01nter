@@ -10,6 +10,7 @@ import Post from './Post';
 import { dividerClasses } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
+import CreatePost from './CreatePost'
 
 class PostList extends Component {
     state = {
@@ -46,9 +47,22 @@ class PostList extends Component {
         return chunks;
     };
 
+    handleCreatePost = event => {
+        fetch('http://localhost:5000/posts')
+        .then(res => {
+            res.json().then(resData => {
+                this.setState({
+                    postarr: resData
+                });
+            })
+
+        })
+    }
+
     render() {
         return (
             <>
+            <CreatePost callback={this.handleCreatePost}></CreatePost>
             <Box  sx={ {ml:69 }}>
                 <Box sx={{ fontSize: 16, margin: 1 }}>
                     Sort by:
