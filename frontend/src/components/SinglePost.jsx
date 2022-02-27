@@ -20,41 +20,26 @@ function SinglePost(props) {
     }
 
     return (
-      // <Grid item xs={12} md={6} sx={{
-      //   display:"flex",
-      //   flexDirection:"column",
-      // }}>
-        <CardActionArea component="a" href="#">
-          <Card sx={{ display: 'flex' }}>
-            <CardContent sx={{ flex: 1 }}>
-              <Typography component="h2" variant="h5" sx={{
-                color:"black"
-              }}>
-                {post.username}
-              </Typography>
-              {/* <Typography variant="subtitle1" color="text.secondary">
-                {post.date}
-              </Typography> */}
-              <Typography variant="subtitle1" paragraph sx={{
-                color:"black"
-              }}>
-                {"Labels: " + post.label.join(", ")}
-              </Typography>
-              <Typography variant="subtitle1" color="primary" onClick={detailPage}>
-                Continue reading...
-              </Typography>
-            </CardContent>
-            <CardMedia
-              component="img"
-              sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
-              image={"http://localhost:5000/" + post.imagePath}
+      <Card sx={{ maxWidth: 600}} style={{backgroundColor: "#292929"}}>
+      <CardActionArea onClick={detailPage} >
+        <CardMedia
+          component="img"
+          height="230"
+          image={"http://localhost:5000/" + post.imagePath}
               alt={post.type}
-            />
-          </Card>
-        </CardActionArea>
-      // </Grid>
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {post.username}
+          </Typography>
+          <Typography variant="body2">
+          {"#" + post.label.join(" #")}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      </Card>
     );
-  
+
 }
 
 export default SinglePost;
