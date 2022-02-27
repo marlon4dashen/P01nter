@@ -84,7 +84,7 @@ const CreatePost = (props) => {
 
     return (
         <>
-            <Card sx={{ width:0.5, ml:69, mt:5}} style={{backgroundColor: "#333333"}}>
+            <Card sx={{ width:0.8}} style={{backgroundColor: "#333333"}}>
                 <CardHeader
                     avatar={
                         <Avatar
@@ -109,7 +109,7 @@ const CreatePost = (props) => {
             />
                 <CardContent>
                     <TextField
-                        label={<Typography sx={{color: "white"}}>Start a post</Typography>}
+                        label={<Typography sx={{color: "white"}}>Write something...</Typography>}
                         multiline
                         fullWidth
                         maxRows={4}
