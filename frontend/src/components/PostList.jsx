@@ -18,7 +18,6 @@ class PostList extends Component {
     state = {
         type: '',
         postarr: [],
-        filteredarr: [],
         inputLabel: ''
     }
 
@@ -61,39 +60,16 @@ class PostList extends Component {
         })
     }
 
-    // search = (e) => {
-    //     if (this.state.postarr.length === 0){
-    //         return;
-    //     }
-
-    //     if (this.state.inputLabel === ""){
-    //         this.setState({
-    //             filteredarr: this.state.postarr
-    //         })
-    //     }
-
-    //     this.state.postarr.forEach(post => {
-    //         post.label.forEach(label => {
-    //             if (label === this.state.inputLabel )
-    //                 this.setState({
-    //                     filteredarr: [...this.state.filteredarr, post]
-    //                 })
-    //                 console.log(this.state.filteredarr)
-    //         })        
-    //     })
-    // }
-
     render() {
         return (
             <>
+            <Box justifyContent="center" component="span" mt={5}
+                sx={{ display: 'inline-block', mx: '5px', width:'100vw' }}>
             <CreatePost callback={this.handleCreatePost}></CreatePost>
-            <Box  sx={ {ml:69 }}>
-                <Box sx={{ fontSize: 16, margin: 1 }}>
-                    Search by labels: 
-                </Box>
+            <Box >
                 <Box sx={{ maxWidth: 240, margin: 1 }}>
-                    <FormControl fullWidth>
-                        <Box  sx={{
+                    <Typography sx={{color: "white"}}>Search by labels:  </Typography>
+                    <Box  sx={{
                             display:"flex",
                             flexDirection: "row"
                         }}>
@@ -102,16 +78,16 @@ class PostList extends Component {
                                 <SearchIcon sx={{color:"white"}} />
                             </IconButton>
                         </Box>
-                    </FormControl>
                 </Box>
             </Box>
 
-            <Box sx={{ width: 0.5, mx: 70}}>
-                {this.state.inputLabel === "" ? this.state.postarr.map(post => (<SinglePost post={post} />)) :
-                this.state.postarr.filter(post => post.label.includes(this.state.inputLabel)).map(post => (
-                    <SinglePost post={post} />))}
 
-            </Box>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+                {this.state.inputLabel === "" ? this.state.postarr.slice(0).reverse().map(post => (<Grid item xs={4}> <SinglePost post={post} /> </Grid>)) :
+                    this.state.postarr.slice(0).reverse().filter(post => post.label.includes(this.state.inputLabel)).map(post => (
+                        <Grid item xs={4}> <SinglePost post={post} /> </Grid>))}
+                </Grid>
+                </Box>
         </>
         )
     }
