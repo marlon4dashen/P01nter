@@ -18,6 +18,7 @@ import ResponsiveNavBar from './basic/ResponsiveNavBar';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import comments from '../helpers/comments.json'
+import Link from '@mui/material/Link';
 
 
 export function withRouter(Children) {
@@ -121,9 +122,22 @@ class Post extends Component {
                     <Typography variant="body3" color="white">
                         {this.state.description}
                     </Typography>
-                    <Typography sx={{marginTop: 1}} variant="body2" color="#ADACAC">
-                        {"Labels: " + this.state.label.join(", ")}
-                    </Typography>
+                    <Stack direction="rows">
+                        {
+                            this.state.label.map((label) => {
+                                // return (
+                                //     <Typography sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
+                                //         {`#${label}`}
+                                //     </Typography>
+                                // );
+                                return (
+                                    <Link href={`/${label}`} underline="none" sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
+                                        {`#${label}`}
+                                    </Link>
+                                );
+                            })
+                        }
+                    </Stack>
                 </CardContent>
                 <CardActions disableSpacing sx={{color:"white"}}>
                     <IconButton
