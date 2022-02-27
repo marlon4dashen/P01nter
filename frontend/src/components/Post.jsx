@@ -131,9 +131,9 @@ class Post extends Component {
                                 //     </Typography>
                                 // );
                                 return (
-                                    <Link href={`/${label}`} underline="none" sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
+                                    <Typography sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
                                         {`#${label}`}
-                                    </Link>
+                                    </Typography>
                                 );
                             })
                         }
