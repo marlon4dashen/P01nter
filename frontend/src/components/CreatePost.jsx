@@ -33,10 +33,11 @@ const CreatePost = (props) => {
 
     const [uploadedFiles, setFiles] = useState([]);
 
+    const [isUploaded, setUploaded] = useState(false);
+
 
     const uploadPhoto = () => {
         handleClickOpen();
-
     }
 
     const typeSelection = (event) => {
@@ -53,6 +54,7 @@ const CreatePost = (props) => {
 
     const handleClose = () => {
         setOpen(false);
+        setUploaded(false);
     };
 
 
@@ -132,6 +134,8 @@ const CreatePost = (props) => {
                 onClose={handleClose}
                 setFiles={setFiles}
                 uploadedFiles={uploadedFiles}
+                isUploaded={isUploaded}
+                setUploaded={setUploaded}
             />
         </>
     );

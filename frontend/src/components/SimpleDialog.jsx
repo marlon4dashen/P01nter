@@ -5,7 +5,8 @@ import DialogContent from '@mui/material/DialogContent';
 import { useState } from 'react';
 import MyDropzone from './MyDropZone';
 
-const SimpleDialog = ({ onClose, setFiles, uploadedFiles, open }) => {
+const SimpleDialog = ({ onClose, setFiles, uploadedFiles, open, isUploaded, setUploaded }) => {
+
 
     return (
       <Dialog fullWidth={true} maxWidth={"md"} onClose={onClose} open={open}>
@@ -14,6 +15,8 @@ const SimpleDialog = ({ onClose, setFiles, uploadedFiles, open }) => {
                 <MyDropzone class="dropbox"
                     setFiles={setFiles}
                     uploadedFiles={uploadedFiles}
+                    isUploaded={isUploaded}
+                    setUploaded={setUploaded}
                 />
             </DialogContent>
 

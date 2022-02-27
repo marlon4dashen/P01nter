@@ -103,9 +103,22 @@ class Post extends Component {
                     <Typography variant="body3" color="white">
                         {this.state.description}
                     </Typography>
-                    <Typography sx={{marginTop: 1}} variant="body2" color="#ADACAC">
-                        {"Labels: " + this.state.label.join(", ")}
-                    </Typography>
+                    <Stack direction="rows">
+                        {
+                            this.state.label.map((label) => {
+                                // return (
+                                //     <Typography sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
+                                //         {`#${label}`}
+                                //     </Typography>
+                                // );
+                                return (
+                                    <Typography sx={{marginTop: 1, ml: 1}} variant="body2" color="#ADACAC">
+                                        {`#${label}`}
+                                    </Typography>
+                                );
+                            })
+                        }
+                    </Stack>
                 </CardContent>
                 <CardActions disableSpacing sx={{color:"white"}}>
                     <IconButton
