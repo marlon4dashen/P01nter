@@ -18,7 +18,7 @@ import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
-const CreatePost = () => {
+const CreatePost = (props) => {
     const userProfile = "https://images.unsplash.com/photo-1522228115018-d838bcce5c3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
 
     // const navigate = useNavigate();
@@ -32,6 +32,7 @@ const CreatePost = () => {
     const [open, setOpen] = useState(false);
 
     const [uploadedFiles, setFiles] = useState([]);
+
 
     const uploadPhoto = () => {
         handleClickOpen();
@@ -54,6 +55,7 @@ const CreatePost = () => {
         setOpen(false);
     };
 
+
     const submit = () => {
         const formData = new FormData()
         formData.append('username', "Marlon")
@@ -73,7 +75,7 @@ const CreatePost = () => {
                 setFiles([])
                 setText('')
                 setType('')
-
+                props.callback()
             }else{
                 throw new Error("Failed to upload")
             }

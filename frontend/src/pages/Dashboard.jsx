@@ -6,9 +6,9 @@ import PostList from '../components/PostList';
 
 const Dashboard = () => {
 
+
     return <>
         <ResponsiveNavBar/>
-        <CreatePost/>
         <PostList/>
     </>;
 };
