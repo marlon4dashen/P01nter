@@ -9,6 +9,7 @@ import users from '../helpers/local-storage.json';
 import Post from './Post';
 import { dividerClasses } from '@mui/material';
 import { Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import CreatePost from './CreatePost'
 import SinglePost from './SinglePost'
 
@@ -36,6 +37,16 @@ class PostList extends Component {
         })
     };
 
+    chunkArray = (arr) => {
+        var chunkLength = Math.max(arr.length/2 ,1);
+        var chunks = [];
+        for (var i = 0; i < 2; i++) {
+            if(chunkLength*(i+1)<=arr.length)chunks.push(arr.slice(chunkLength*i, chunkLength*(i+1)));
+        }
+        console.log("arr: "+arr);
+        console.log("chunks"+chunks[0]);
+        return chunks;
+    };
 
     handleCreatePost = () => {
         fetch('http://localhost:5000/posts')
@@ -69,7 +80,7 @@ class PostList extends Component {
                             onChange={this.typeSelection}
                         >
                         <MenuItem sx={{color:"black"}} value={"Food"}>Food</MenuItem>
-                        <MenuItem sx={{color:"black"}} value={"Views"}>Views</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Landscape"}>Views</MenuItem>
                         <MenuItem sx={{color:"black"}} value={"People"}>People</MenuItem>
                         </Select>
                     </FormControl>

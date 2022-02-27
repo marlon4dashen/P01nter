@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import {
     useParams
   } from "react-router-dom";
+=======
+import { useNavigate, useLocation } from 'react-router-dom';
+>>>>>>> e26fa6e2b04b0a7ca11520f430cd2dfe87f10422
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,6 +15,9 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import ReadMoreIcon from '@mui/icons-material/ReadMore';
+import StarIcon from '@mui/icons-material/Star';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 
 export function withRouter(Children) {
@@ -21,8 +28,8 @@ export function withRouter(Children) {
 }
 
 
-class Post extends Component {
 
+class Post extends Component {
     state = {
         username: '',
         description: '',
@@ -32,7 +39,7 @@ class Post extends Component {
         likes: 0,
         pressed: false
       };
-    
+
     userProfile = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
 
       componentDidMount() {
@@ -54,7 +61,7 @@ class Post extends Component {
             })
           })
       }
-    
+
 
       likesOnClick = () => {
         if (!this.state.pressed) {
@@ -68,6 +75,11 @@ class Post extends Component {
                 pressed : !this.state.pressed
             })
         }
+    }
+
+    readMoreOnclick = () => {
+
+        window.open('http://localhost:3000/dashboard/post/id=001', '_blank');
     }
 
       render() {
@@ -101,12 +113,24 @@ class Post extends Component {
                 </CardContent>
                 <CardActions disableSpacing sx={{color:"white"}}>
                     <IconButton
-                        aria-label="add to favorites"
+                        aria-label="Add to likes"
                         onClick={this.likesOnClick}
                     >
                         {(!this.state.pressed) ? <FavoriteIcon sx={{color: "#8B8989"}} /> : <FavoriteIcon sx={{color: '#BF6666'}}/>}
                     </IconButton>
                     {this.state.likes}
+
+                    <IconButton
+                        aria-label="Save to favorites"
+                    >
+                        <StarIcon sx={{color: "#8B8989" }}/>
+                    </IconButton>
+                    <IconButton
+                        aria-label="Read more"
+                        onClick={this.readMoreOnclick}
+                    >
+                        <MoreHorizIcon sx={{color: "#8B8989" }}/>
+                    </IconButton>
                 </CardActions>
             </Card>
         </>
@@ -141,7 +165,7 @@ class Post extends Component {
 //             setPressed(!pressed)
 //         }
 //     }
-    
+
 
 //     return (
 //         <>
