@@ -49,16 +49,7 @@ class PostList extends Component {
     };
 
     handleCreatePost = () => {
-        fetch('http://localhost:5000/posts')
-        .then(res => {
-            res.json().then(resData => {
-                console.log(resData)
-                this.setState({
-                    postarr: resData
-                });
-            })
-
-        })
+        window.location.reload(false);
     }
 
     render() {
