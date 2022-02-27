@@ -38,7 +38,7 @@ const App = () => {
         },
       });
 
-  
+
     themeDark = createTheme({
         palette: {
           background: {
@@ -90,6 +90,7 @@ const App = () => {
               window.location.href = 'https://google.com';
               return null;
             }}/>
+            <Route path="/postcard.html"/>
             <Route path="/*" element={<Error/>} />
         </Routes>
       </Router>
