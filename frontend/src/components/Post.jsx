@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import {
     useParams
   } from "react-router-dom";
-=======
-import { useNavigate, useLocation } from 'react-router-dom';
->>>>>>> e26fa6e2b04b0a7ca11520f430cd2dfe87f10422
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
