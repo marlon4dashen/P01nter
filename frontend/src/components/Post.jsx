@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+    useParams
+  } from "react-router-dom";
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
@@ -10,9 +13,15 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 
+export function withRouter(Children) {
+  return (props) => {
+    const match = { params: useParams() };
+    return <Children {...props} match={match} />
+  }
+}
+
 
 class Post extends Component {
-
 
     state = {
         username: '',
@@ -27,9 +36,9 @@ class Post extends Component {
     userProfile = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
 
       componentDidMount() {
-          console.log(this.props)
-        const postId = this.props.post.id;
-        fetch('http://localhost:5000/post/' + postId)
+          
+        const postid = this.props.match.params.id;
+        fetch('http://localhost:5000/post/' + postid)
           .then(res => {
             res.json().then(resData => {
                 console.log(resData)
@@ -140,4 +149,4 @@ class Post extends Component {
 //     );
 // };
 
-export default Post;
+export default withRouter(Post);

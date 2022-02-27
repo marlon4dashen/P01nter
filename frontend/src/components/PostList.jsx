@@ -10,6 +10,7 @@ import Post from './Post';
 import { dividerClasses } from '@mui/material';
 import { Typography } from '@mui/material';
 import CreatePost from './CreatePost'
+import SinglePost from './SinglePost'
 
 class PostList extends Component {
     state = {
@@ -36,10 +37,11 @@ class PostList extends Component {
     };
 
 
-    handleCreatePost = event => {
+    handleCreatePost = () => {
         fetch('http://localhost:5000/posts')
         .then(res => {
             res.json().then(resData => {
+                console.log(resData)
                 this.setState({
                     postarr: resData
                 });
@@ -76,7 +78,7 @@ class PostList extends Component {
 
             <Box sx={{ width: 0.5, mx: 70}}>
                 {this.state.postarr.map(post => {
-                    return <Post post={post} />
+                    return <SinglePost post={post} />
                 })}
 
             </Box>
