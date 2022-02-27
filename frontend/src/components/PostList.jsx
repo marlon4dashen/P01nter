@@ -9,6 +9,7 @@ import users from '../helpers/local-storage.json';
 import Post from './Post';
 import { dividerClasses } from '@mui/material';
 import { Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 
 class PostList extends Component {
     state = {
@@ -34,6 +35,17 @@ class PostList extends Component {
         })
     };
 
+    chunkArray = (arr) => {
+        var chunkLength = Math.max(arr.length/2 ,1);
+        var chunks = [];
+        for (var i = 0; i < 2; i++) {
+            if(chunkLength*(i+1)<=arr.length)chunks.push(arr.slice(chunkLength*i, chunkLength*(i+1)));
+        }
+        console.log("arr: "+arr);
+        console.log("chunks"+chunks[0]);
+        return chunks;
+    };
+
     render() {
         return (
             <>
@@ -52,17 +64,26 @@ class PostList extends Component {
                             onChange={this.typeSelection}
                         >
                         <MenuItem sx={{color:"black"}} value={"Food"}>Food</MenuItem>
-                        <MenuItem sx={{color:"black"}} value={"Views"}>Views</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Landscape"}>Views</MenuItem>
                         <MenuItem sx={{color:"black"}} value={"People"}>People</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
             </Box>
 
-            <Box sx={{ width: 0.5, mx: 70}}>
-                {this.state.postarr.map(post => {
-                    return <Post post={post} />
-                })}
+            <Box sx={{ width: 0.9, mx: 10}}>
+                <Grid container direction="row" alignItems="flex-start" spacing={2}>
+                    <Grid item xs={6}>
+                        {this.state.postarr.map(post => {
+                            return <Post post={post} />
+                        })}
+                    </Grid>
+                    <Grid item xs={6}>
+                        {this.state.postarr.map(post => {
+                            return <Post post={post} />
+                        })}
+                    </Grid>
+                </Grid>
 
             </Box>
         </>

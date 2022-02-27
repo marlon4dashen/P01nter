@@ -8,7 +8,7 @@ export const IntroContainer = styled.div`
   width: 100vw;
   height: 100vh;
   margin:0;
-  padding:13%;
+  top:33vh;
   left:10vw;
 
   display: flex;
