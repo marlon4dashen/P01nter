@@ -86,8 +86,6 @@ class PostList extends Component {
     render() {
         return (
             <>
-            <Box justifyContent="center" component="span" mt={5}
-                sx={{ display: 'inline-block', mx: '5px', width:'100vw' }}>
             <CreatePost callback={this.handleCreatePost}></CreatePost>
             <Box  sx={ {ml:69 }}>
                 <Box sx={{ fontSize: 16, margin: 1 }}>
@@ -113,12 +111,7 @@ class PostList extends Component {
                 this.state.postarr.filter(post => post.label.includes(this.state.inputLabel)).map(post => (
                     <SinglePost post={post} />))}
 
-            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-                {this.state.postarr.slice(0).reverse().map(post => {
-                    return <Grid item xs={4}> <SinglePost post={post}/> </Grid>
-                })}
-                </Grid>
-                </Box>
+            </Box>
         </>
         )
     }
