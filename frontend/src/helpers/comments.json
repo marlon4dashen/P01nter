@@ -1,0 +1,30 @@
+[
+    {
+        "userProfile": "S",
+        "userName": "Senni",
+        "comment": "Beauty of Paris lies in this monument. What a beautiful creations by the architects and engineers.",
+        "time": "December 20, 2016",
+        "color": "brown"
+    },
+    {
+        "userProfile": "M",
+        "userName": "Manyi",
+        "comment": "The most spectacular and wonderful place in Paris. The Eiffel tower is historical place, but looks modern at the same time.",
+        "time": "November 27, 2016",
+        "color": "grey"
+    },
+    {
+        "userProfile": "J",
+        "userName": "Jiaxin",
+        "comment": "Absolutely loved it. The sight from the top is worth the climb. It was truly one of the highlights of my visit to Paris. One of my favourite places I’ve ever visited.",
+        "time": "October 30, 2016",
+        "color": "pink"
+    },
+    {
+        "userProfile": "Q",
+        "userName": "Qinglong",
+        "comment": "Beautiful site to see. Everyone knows this tower, and it’s a staple of the Parisian skyline.",
+        "time": "September 27, 2016",
+        "color": "yellow"
+    }
+]
