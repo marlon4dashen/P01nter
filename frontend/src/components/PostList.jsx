@@ -55,15 +55,14 @@ class PostList extends Component {
     render() {
         return (
             <>
+            <Box justifyContent="center" component="span" mt={5}
+                sx={{ display: 'inline-block', mx: '5px', width:'100vw' }}>
             <CreatePost callback={this.handleCreatePost}></CreatePost>
-            <Box  sx={ {ml:69 }}>
-                <Box sx={{ fontSize: 16, margin: 1 }}>
-                    Sort by:
-                </Box>
+            <Box >
                 <Box sx={{ maxWidth: 240, margin: 1 }}>
                     <FormControl fullWidth>
                         <InputLabel>
-                            <Typography sx={{color: "white"}}>Type</Typography>
+                            <Typography sx={{color: "white"}}>Sort by: </Typography>
                         </InputLabel>
                         <Select
                             value={this.type}
@@ -71,19 +70,20 @@ class PostList extends Component {
                             onChange={this.typeSelection}
                         >
                         <MenuItem sx={{color:"black"}} value={"Food"}>Food</MenuItem>
-                        <MenuItem sx={{color:"black"}} value={"Landscape"}>Views</MenuItem>
+                        <MenuItem sx={{color:"black"}} value={"Landscape"}>Landscape</MenuItem>
                         <MenuItem sx={{color:"black"}} value={"People"}>People</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>
             </Box>
 
-            <Box sx={{ width: 0.5, mx: 70}}>
-                {this.state.postarr.map(post => {
-                    return <SinglePost post={post} />
-                })}
 
-            </Box>
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
+                {this.state.postarr.map(post => {
+                    return <Grid item xs={4}> <SinglePost post={post}/> </Grid>
+                })}
+                </Grid>
+                </Box>
         </>
         )
     }
