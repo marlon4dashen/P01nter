@@ -35,8 +35,10 @@ function SinglePost(props) {
               {/* <Typography variant="subtitle1" color="text.secondary">
                 {post.date}
               </Typography> */}
-              <Typography variant="subtitle1" paragraph>
-                {post.description}
+              <Typography variant="subtitle1" paragraph sx={{
+                color:"black"
+              }}>
+                {"Labels: " + post.label.join(", ")}
               </Typography>
               <Typography variant="subtitle1" color="primary" onClick={detailPage}>
                 Continue reading...
