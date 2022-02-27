@@ -79,7 +79,7 @@ class PostList extends Component {
 
 
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-                {this.state.postarr.map(post => {
+                {this.state.postarr.slice(0).reverse().map(post => {
                     return <Grid item xs={4}> <SinglePost post={post}/> </Grid>
                 })}
                 </Grid>

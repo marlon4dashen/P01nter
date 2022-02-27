@@ -39,7 +39,7 @@ class Post extends Component {
     userProfile = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
 
       componentDidMount() {
-          
+
         const postid = this.props.match.params.id;
         fetch('http://localhost:5000/post/' + postid)
           .then(res => {
@@ -75,7 +75,7 @@ class Post extends Component {
 
     readMoreOnclick = () => {
 
-        window.open('http://localhost:3000/dashboard/post/id=001', '_blank');
+        window.open('http://localhost:3000/postcard.html', '_blank');
     }
 
       render() {
