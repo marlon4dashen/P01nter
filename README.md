@@ -3,6 +3,7 @@ Traveling is one of the greatest ways to get out of the hustle and bustle of you
 
 Traveling abroad gives you brand new experience to immerse in a different culture. A research shows that foreign experiences increase both cognitive flexibility and depth and integrativeness of thought The COVID-19 pandemic has prompted all destinations worldwide to introduce restrictions on travel. According to a trend report from American Express, people miss travel so much that they are feeling anxious and stressed.
 
+![alt text](https://github.com/manyicheng/P01nter/blob/main/home.gif)
 ## :iphone: What it does
 P01nter provides a space for its users to post, share and enjoy their special moments of life with people around the world. It uses google cloud vision API to detect labels, web entity and landscape from the image and automatically label the post based on confidence score.
 
