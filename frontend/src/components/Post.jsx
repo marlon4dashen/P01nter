@@ -14,6 +14,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import StarIcon from '@mui/icons-material/Star';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ResponsiveNavBar from './basic/ResponsiveNavBar';
+import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
+import comments from '../helpers/comments.json'
 
 
 export function withRouter(Children) {
@@ -33,7 +37,8 @@ class Post extends Component {
         image: '',
         label: [],
         likes: 0,
-        pressed: false
+        pressed: false,
+        saved: false,
       };
 
     userProfile = "https://thumbs.dreamstime.com/b/default-avatar-profile-vector-user-profile-default-avatar-profile-vector-user-profile-profile-179376714.jpg"
@@ -59,18 +64,30 @@ class Post extends Component {
       }
 
 
-      likesOnClick = () => {
+    likesOnClick = () => {
         if (!this.state.pressed) {
             this.setState({
                 likes : this.state.likes + 1,
-                pressed : !this.state.pressed
+                pressed : !this.state.pressed,
             })
         } else {
             this.setState({
                 likes : this.state.likes - 1,
-                pressed : !this.state.pressed
+                pressed : !this.state.pressed,
             })
         }
+    }
+
+    saveOnClick = () => {
+        if (!this.state.saved) {
+            this.setState({
+                saved: !this.state.saved
+            })
+        } else {
+            this.setState({
+                saved: !this.state.saved
+            })
+        }  
     }
 
     readMoreOnclick = () => {
@@ -81,7 +98,8 @@ class Post extends Component {
       render() {
         return (
         <>
-            <Card sx={{ marginTop: 5}} style={{backgroundColor: "#333333"}}>
+            <ResponsiveNavBar/>
+            <Card sx={{ my: 5, mx: 40}} style={{backgroundColor: "#333333"}}>
                 <CardHeader
                     avatar={
                         <Avatar
@@ -89,12 +107,12 @@ class Post extends Component {
                             sx={{ width: 56, height: 56 }}
                         />
                     }
-                title={<Typography sx={{color:"white"}}>{this.state.username}</Typography>}
-                subheader={<Typography sx={{color:"#ADACAC", fontSize: 12}}>September 14, 2016</Typography>}
-                sx = {{
-                    color: "black"
-                }}
-            />
+                    title={<Typography sx={{color:"white"}}>{this.state.username}</Typography>}
+                    subheader={<Typography sx={{color:"#ADACAC", fontSize: 12}}>September 14, 2016</Typography>}
+                    sx = {{
+                        color: "black"
+                    }}
+                />
                 <CardMedia
                     component="img"
                     image={this.state.image}
@@ -118,8 +136,9 @@ class Post extends Component {
 
                     <IconButton
                         aria-label="Save to favorites"
+                        onClick={this.saveOnClick}
                     >
-                        <StarIcon sx={{color: "#8B8989" }}/>
+                        {(!this.state.saved) ? <StarIcon sx={{color: "#8B8989" }}/> : <StarIcon sx={{color: '#D5DA3E' }}/>}
                     </IconButton>
                     <IconButton
                         aria-label="Read more"
@@ -128,6 +147,22 @@ class Post extends Component {
                         <MoreHorizIcon sx={{color: "#8B8989" }}/>
                     </IconButton>
                 </CardActions>
+                    {
+                        comments.map((comment) => {
+                            return (
+                                <>
+                                    <Stack direction="row" spacing={2} sx={{ml: 2, mb: 3}}>
+                                        <Avatar sx={{ bgcolor: `${comment.color}` }}>{comment.userProfile}</Avatar>
+                                        <Box>
+                                            <Typography sx={{fontSize: 14}}>{comment.userName}</Typography>
+                                            <Typography sx={{fontSize: 10, color:"#ADACAC"}}>{comment.time}</Typography>
+                                            <Typography sx={{fontSize: 16}}>{comment.comment}</Typography>
+                                        </Box>
+                                    </Stack>
+                                </>
+                            );
+                        })
+                    } 
             </Card>
         </>
         );
