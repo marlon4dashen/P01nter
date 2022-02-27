@@ -11,6 +11,7 @@ import { dividerClasses } from '@mui/material';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import CreatePost from './CreatePost'
+import SinglePost from './SinglePost'
 
 class PostList extends Component {
     state = {
@@ -47,10 +48,11 @@ class PostList extends Component {
         return chunks;
     };
 
-    handleCreatePost = event => {
+    handleCreatePost = () => {
         fetch('http://localhost:5000/posts')
         .then(res => {
             res.json().then(resData => {
+                console.log(resData)
                 this.setState({
                     postarr: resData
                 });
@@ -85,19 +87,10 @@ class PostList extends Component {
                 </Box>
             </Box>
 
-            <Box sx={{ width: 0.9, mx: 10}}>
-                <Grid container direction="row" alignItems="flex-start" spacing={2}>
-                    <Grid item xs={6}>
-                        {this.state.postarr.map(post => {
-                            return <Post post={post} />
-                        })}
-                    </Grid>
-                    <Grid item xs={6}>
-                        {this.state.postarr.map(post => {
-                            return <Post post={post} />
-                        })}
-                    </Grid>
-                </Grid>
+            <Box sx={{ width: 0.5, mx: 70}}>
+                {this.state.postarr.map(post => {
+                    return <SinglePost post={post} />
+                })}
 
             </Box>
         </>

@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { Divider, CardMedia} from "@mui/material";
 
 
-const introduction = "We are a group of enthusiastic student developers from McMaster University. P01inter is a project we made during VTHACKS IX 2022 to help people explore the world."
+const introduction = "We are a group of enthusiastic student developers from McMaster University. P01nter is a project we made during VTHACKS IX 2022 to help people explore the world."
 const inspiration = "Most of us want to travel to take a break from the pressures and routine of daily life. It gives us a reason to see new places and experience new cultures. Travel improves brain health by offering physical and cognitive benefits. The change of scenery and pace, the heightened present moment awareness, the sincere engagement, and curiosity, literally build new synapse in the brain. Unfortunately, due to the Covid-19 pandemic, people around the world suffer from travel restrictions. By designing a travel website with vivid images and destination information, we hope to encourage those who are in depression and would like to be on a trip in the future. ​it "
 
 
