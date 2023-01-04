@@ -64,7 +64,7 @@ const CreatePost = (props) => {
         formData.append('description', text)
         formData.append('type', type)
         formData.append('image', uploadedFiles[0])
-        let url = "http://localhost:5000/post"
+        let url = "http://localhost:5001/post"
         let method = "POST"
 
         fetch(url, {

@@ -5,6 +5,8 @@ const multer = require('multer')
 const path = require('path')
 const rootDir = require('./util/path')
 const adminRoutes = require('./routes/admin')
+var mongoose = require('mongoose');
+require('dotenv/config');
 
 const app = express();
 app.use(bodyParser.json())
@@ -31,12 +33,16 @@ const fileStorage = multer.diskStorage({
 
 app.use(multer({ storage : fileStorage }).single('image'))
 app.use(cors());
+
+
+
 app.use('/data/images', express.static(path.join(__dirname, 'data', 'images')));
 
 
 app.use(adminRoutes)
 
-app.set('port', 5000);
-const server = app.listen(app.get('port'), () => {
-  console.log(`Server is running on port ${server.address().port}`);
-});
+mongoose.connect(process.env.MONGO_URL).then(result => {
+        app.listen(process.env.PORT)
+    }).catch(err => {
+        console.log(err)
+    });

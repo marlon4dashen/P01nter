@@ -16,8 +16,9 @@ function SinglePost(props) {
 
     let navigate = useNavigate()
     const detailPage = () => {
-      navigate(`/post/${post.id}`)
+      navigate(`/post/${post._id}`)
     }
+    console.log(post.image.data)
 
     return (
       <Card sx={{ maxWidth: 600}} style={{backgroundColor: "#292929"}}>
@@ -25,7 +26,7 @@ function SinglePost(props) {
         <CardMedia
           component="img"
           height="230"
-          image={"http://localhost:5000/" + post.imagePath}
+          image={"http://localhost:5001/" + post.imagePath}
               alt={post.type}
         />
         <CardContent>

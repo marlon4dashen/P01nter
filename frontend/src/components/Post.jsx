@@ -47,14 +47,16 @@ class Post extends Component {
       componentDidMount() {
 
         const postid = this.props.match.params.id;
-        fetch('http://localhost:5000/post/' + postid)
+        console.log(postid)
+        fetch('http://localhost:5001/post/' + postid)
           .then(res => {
             res.json().then(resData => {
                 console.log(resData)
+                resData = resData[0]
                 this.setState({
                     username: resData.username,
                     description: resData.description,
-                    image: 'http://localhost:5000/' + resData.imagePath,
+                    image: 'http://localhost:5001/' + resData.imagePath,
                     type: resData.type,
                     label: resData.label,
                     likes: resData.likes
@@ -96,7 +98,7 @@ class Post extends Component {
         window.open('http://localhost:3000/postcard.html', '_blank');
     }
 
-      render() {
+    render() {
         return (
         <>
             <ResponsiveNavBar/>
